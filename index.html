@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <button id="openModalBtn">Create New Task</button>
+
+    <!-- New Task Modal -->
+    <div id="newTaskModal" class="modal">
+      <div class="modal__inner">
+        <div class="modal__header">
+          <h2>New Task</h2>
+          <button class="modal__close" id="closeModalBtn"></button>
+        </div>
+
+        <form id="newTaskForm">
+          <label>
+            Title:
+            <input type="text" name="title" required>
+          </label>
+          <label>
+            Description:
+            <textarea name="description" rows="3"></textarea>
+          </label>
+          <label>
+            Assignee:
+            <input type="text" name="assignee">
+          </label>
+          <label>
+            Status:
+            <select name="status" required>
+              <option value="pending">Pending</option>
+              <option value="in-progress">In Progress</option>
+              <option value="completed">Completed</option>
+            </select>
+          </label>
+          <button type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="taskView.js"></script>
+  </body>
+</html>
