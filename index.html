@@ -15,7 +15,7 @@
         <h1 class="logo__text">Task Manager</h1>
       </div>
       <div class="header__menu">
-        <button id="openModalBtn" class="menu__newTaskButton">New Task</button>
+        <button id="openModalButton" class="menu__newTaskButton primaryButton">New Task</button>
       </div>
     </div>
 
@@ -23,12 +23,15 @@
     <div class="taskManager__content">
       <div class="content__pendingColumn">
         <div class="pendingColumn__header">Pending</div>
+        <div class="pendingColumn__tasks">Pending</div>
       </div>
       <div class="content__inProgressColumn">
         <div class="inProgressColumn__header">In Progress</div>
+        <div class="inProgressColumn__tasks">In Progress</div>
       </div>
       <div class="content__finishedColumn">
         <div class="finishedColumn__header">Finished</div>
+        <div class="finishedColumn__tasks">Finished</div>
       </div>
     </div>
 
@@ -37,7 +40,7 @@
       <div class="modal__inner">
         <div class="modal__header">
           <h2>New Task</h2>
-          <button class="modal__close" id="closeModalBtn"></button>
+          <button class="modal__close"></button>
         </div>
         <form id="newTaskForm">
           <label>
@@ -60,10 +63,25 @@
               <option value="completed">Completed</option>
             </select>
           </label>
-          <button type="submit">Save</button>
+          <button type="submit" class="primaryButton">Save</button>
         </form>
       </div>
     </div>
+
+    <!-- Existing Task Modal -->
+    <div id="existingTaskModal" class="modal">
+      <div class="modal__inner">
+        <div class="modal__header">
+          <h2 class="modal__title"></h2>
+          <button class="modal__close"></button>
+        </div>
+        <div class="modal__content">
+          <p class="modalContent__description"></p>
+          <p class="modalContent__assignee"></p>
+        </div>
+      </div>
+    </div>
+
     <script src="taskView.js" type="module"></script>
   </body>
 </html>

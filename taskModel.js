@@ -10,6 +10,17 @@ export function loadTasks() {
 }
 
 /**
+ * Load a task from localStorage based on given id.
+ * @param {string} id - The id of the requested task.
+ * @returns {Object|null} The requested task object if exists; null otherwise.
+ */
+export function loadTask(id) {
+    const data = localStorage.getItem(TASKS_KEY);
+    const tasks = JSON.parse(data);
+    return tasks.find(task => task.id === id) || null;
+}
+
+/**
  * Save all tasks to localStorage.
  * @param {Array} tasks - Array of task objects.
  */

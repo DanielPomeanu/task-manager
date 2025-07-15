@@ -13,30 +13,35 @@ body {
 }
 
 .taskManager {
+    .primaryButton {
+        padding: 20px 30px;
+        margin: 15px 10px 0 0;
+        min-width: 130px;
+        background-color: #103F4A;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #1A6575;
+        }
+    }
+
     .taskManager__header {
         display: flex;
         justify-content: space-between;
         padding: 20px;
-        background: linear-gradient(90deg, #2a7b9b 0%, #57c785 90%);
+        background: linear-gradient(90deg, #2A7B9B 0%, #57C785 90%);
 
         .header__logo {
             .logo__text {
-                color: #fff;
+                color: #FFF;
             }
         }
 
         .header__menu {
             .menu__newTaskButton {
-                padding: 20px 30px;
-                margin: 15px 10px 0 0;
-                background-color: #103F4A;
-                color: white;
-                font-size: 16px;
 
-                &:hover {
-                    background-color: #1A6575;
-                    cursor: pointer;
-                }
             }
         }
     }
@@ -68,6 +73,26 @@ body {
             color: #FFF;
         }
 
+        .task {
+            padding: 20px;
+            background-color: #FFF;
+            margin: 20px;
+            border: 2px solid #000;
+            border-radius: 5px;
+
+            .task__assignee {
+                display: flex;
+                align-items: center;
+
+                &:before {
+                    content: "";
+                    display: inline-block;
+                    width: 36px;
+                    height: 36px;
+                    background: url(user-icon.png) center center / contain no-repeat;
+                }
+            }
+        }
     }
 }
 
@@ -83,7 +108,7 @@ body {
     background-color: rgba(0,0,0,0.5);
 
     .modal__inner {
-        background-color: #fff;
+        background-color: #FFF;
         margin: 10% auto;
         padding: 20px;
         border-radius: 10px;
@@ -99,13 +124,17 @@ body {
             box-sizing: border-box;
         }
 
-        button {
-            padding: 10px;
-            font-size: 14px;
-            cursor: pointer;
+        textarea {
+            resize: none;
         }
 
-        .modal-header {
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px 0;
+        }
+
+        .modal__header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -115,7 +144,22 @@ body {
                 cursor: pointer;
                 border: none;
                 background: none;
+                transition: transform 0.6s ease;
+
+
+                &:before {
+                    content: "X";
+                }
+
+                &:hover {
+                    transform: rotate(180deg);
+                }
             }
+        }
+
+        .modalContent__assignee {
+            border-top: 2px solid #000;
+            padding: 20px 0 0;
         }
     }
 }

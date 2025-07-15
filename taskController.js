@@ -1,4 +1,4 @@
-import {loadTasks, saveTasks, clearAllTasks} from "./taskModel.js"
+import {loadTasks, loadTask, saveTasks, clearAllTasks} from "./taskModel.js"
 
 /**
  * Create a new task and store it.
@@ -63,4 +63,8 @@ export function deleteTask(id) {
  */
 export function retrieveAllTasks() {
     return loadTasks();
+}
+
+export function retrieveTask(taskId) {
+    return loadTask(taskId);
 }
