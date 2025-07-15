@@ -1,9 +1,9 @@
 import { createTask } from './taskController.js';
 
 const openBtn = document.getElementById('openModalBtn');
-const modal = document.getElementById('taskModal');
+const modal = document.getElementById('newTaskModal');
 const closeBtn = document.getElementById('closeModalBtn');
-const form = document.getElementById('taskForm');
+const form = document.getElementById('newTaskForm');
 
 openBtn.addEventListener('click', () => {
     modal.style.display = 'block';
