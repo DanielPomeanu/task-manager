@@ -56,3 +56,11 @@ export function deleteTask(id) {
     saveTasks(filtered);
     return true;
 }
+
+/**
+ * Retrieves all tasks from the local storage via the model.
+ * @returns {Object|[]} The list of tasks or an empty array, if no tasks are found.
+ */
+export function retrieveAllTasks() {
+    return loadTasks();
+}

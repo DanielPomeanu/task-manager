@@ -4,10 +4,33 @@
     <meta charset="UTF-8">
     <title>Task Manager</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/top-modern" rel="stylesheet">
   </head>
 
-  <body>
-    <button id="openModalBtn">Create New Task</button>
+  <body class="taskManager">
+
+    <!-- Header -->
+    <div class="taskManager__header">
+      <div class="header__logo">
+        <h1 class="logo__text">Task Manager</h1>
+      </div>
+      <div class="header__menu">
+        <button id="openModalBtn" class="menu__newTaskButton">New Task</button>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="taskManager__content">
+      <div class="content__pendingColumn">
+        <div class="pendingColumn__header">Pending</div>
+      </div>
+      <div class="content__inProgressColumn">
+        <div class="inProgressColumn__header">In Progress</div>
+      </div>
+      <div class="content__finishedColumn">
+        <div class="finishedColumn__header">Finished</div>
+      </div>
+    </div>
 
     <!-- New Task Modal -->
     <div id="newTaskModal" class="modal">
@@ -16,7 +39,6 @@
           <h2>New Task</h2>
           <button class="modal__close" id="closeModalBtn"></button>
         </div>
-
         <form id="newTaskForm">
           <label>
             Title:
@@ -42,7 +64,6 @@
         </form>
       </div>
     </div>
-
     <script src="taskView.js" type="module"></script>
   </body>
 </html>

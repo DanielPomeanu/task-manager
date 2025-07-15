@@ -1,11 +1,74 @@
 body {
-    font-family: sans-serif;
+    font-family: 'Top Modern', sans-serif;
+    margin: 0;
+
+    h1 {
+        font-size: 36px;
+    }
+
+    button {
+        border: none;
+        font-family: inherit;
+    }
 }
 
-#openModalBtn {
-    padding: 10px 20px;
-    font-size: 16px;
-    margin: 20px;
+.taskManager {
+    .taskManager__header {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background: linear-gradient(90deg, #2a7b9b 0%, #57c785 90%);
+
+        .header__logo {
+            .logo__text {
+                color: #fff;
+            }
+        }
+
+        .header__menu {
+            .menu__newTaskButton {
+                padding: 20px 30px;
+                margin: 15px 10px 0 0;
+                background-color: #103F4A;
+                color: white;
+                font-size: 16px;
+
+                &:hover {
+                    background-color: #1A6575;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .taskManager__content {
+        display: flex;
+        justify-content: space-between;
+        height: 100vh;
+
+        .content__pendingColumn,
+        .content__inProgressColumn,
+        .content__finishedColumn {
+            flex: 1;
+            background-color: #E8FFF0;
+        }
+
+        .content__pendingColumn,
+        .content__inProgressColumn {
+            border-right: 5px solid #103F4A;
+        }
+
+        .pendingColumn__header,
+        .inProgressColumn__header,
+        .finishedColumn__header {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            background-color: #000;
+            color: #FFF;
+        }
+
+    }
 }
 
 .modal {

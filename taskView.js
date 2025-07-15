@@ -1,4 +1,4 @@
-import { createTask } from './taskController.js';
+import { createTask, retrieveAllTasks } from './taskController.js';
 
 const openBtn = document.getElementById('openModalBtn');
 const modal = document.getElementById('newTaskModal');
@@ -34,3 +34,10 @@ form.addEventListener('submit', (event) => {
     modal.style.display = 'none';
     form.reset();
 });
+
+document.ready(function () {
+    const allTasks = retrieveAllTasks();
+    if (allTasks.length) {
+        // create new DOM element for each task and place them in the corresponding column, based on their status
+    }
+})
