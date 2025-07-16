@@ -123,10 +123,14 @@ document.addEventListener("DOMContentLoaded",function () {
  */
 function displayAllTasks() {
     const allTasks = retrieveAllTasks();
+    const pendingColumnTasksElement = document.querySelector(".pendingColumn__tasks");
+    const inProgressColumnTasksElement = document.querySelector(".inProgressColumn__tasks");
+    const finishedColumnTasksElement = document.querySelector(".finishedColumn__tasks");
+    const emptyClass = "is-empty";
 
-    document.querySelector(".pendingColumn__tasks").innerHTML = "";
-    document.querySelector(".inProgressColumn__tasks").innerHTML = "";
-    document.querySelector(".finishedColumn__tasks").innerHTML = "";
+    pendingColumnTasksElement.innerHTML = "";
+    inProgressColumnTasksElement.innerHTML = "";
+    finishedColumnTasksElement.innerHTML = "";
 
     if (allTasks.length) {
         allTasks.forEach(task => {
@@ -158,17 +162,36 @@ function displayAllTasks() {
             switch (task.status) {
                 case "pending":
                     taskDiv.classList.add("pendingColumnTasks__task");
-                    document.querySelector(".pendingColumn__tasks").appendChild(taskDiv);
+                    pendingColumnTasksElement.appendChild(taskDiv);
                     break;
                 case "in-progress":
                     taskDiv.classList.add("inProgressColumnTasks__task");
-                    document.querySelector(".inProgressColumn__tasks").appendChild(taskDiv);
+                    inProgressColumnTasksElement.appendChild(taskDiv);
                     break;
                 case "completed":
                     taskDiv.classList.add("finishedColumnTasks__task");
-                    document.querySelector(".finishedColumn__tasks").appendChild(taskDiv);
+                    finishedColumnTasksElement.appendChild(taskDiv);
                     break;
             }
         });
+    }
+
+    // add is-empty class to columns with no tasks, in order to show a message on mobile
+    if (pendingColumnTasksElement.children.length === 0) {
+        pendingColumnTasksElement.classList.add(emptyClass);
+    } else {
+        pendingColumnTasksElement.classList.remove(emptyClass);
+    }
+
+    if (inProgressColumnTasksElement.children.length === 0) {
+        inProgressColumnTasksElement.classList.add(emptyClass);
+    } else {
+        inProgressColumnTasksElement.classList.remove(emptyClass);
+    }
+
+    if (finishedColumnTasksElement.children.length === 0) {
+        finishedColumnTasksElement.classList.add(emptyClass);
+    } else {
+        finishedColumnTasksElement.classList.remove(emptyClass);
     }
 }

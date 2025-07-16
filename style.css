@@ -1,9 +1,19 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Top Modern', sans-serif;
-    margin: 0;
 
     h1 {
         font-size: 36px;
+    }
+
+    h5 {
+        margin: 0;
     }
 
     button {
@@ -13,14 +23,18 @@ body {
 }
 
 .taskManager {
-    .primaryButton {
+    .primaryButton,
+    .secondaryButton {
         padding: 20px 30px;
         margin: 15px 10px 0 0;
         min-width: 130px;
-        background-color: #103F4A;
+        border-radius: 5px;
         color: white;
         font-size: 16px;
         cursor: pointer;
+    }
+    .primaryButton {
+        background-color: #103F4A;
 
         &:hover {
             background-color: #1A6575;
@@ -28,13 +42,7 @@ body {
     }
 
     .secondaryButton {
-        padding: 20px 30px;
-        margin: 15px 10px 0 0;
-        min-width: 130px;
         background-color: #000;
-        color: white;
-        font-size: 16px;
-        cursor: pointer;
 
         &:hover {
             background-color: #414746;
@@ -65,7 +73,8 @@ body {
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-        height: 100vh;
+        height: auto;
+        min-height: 100%;
 
         @media (min-width: 768px) {
             flex-direction: row;
@@ -95,6 +104,16 @@ body {
             color: #FFF;
         }
 
+        .is-empty {
+            display: flex;
+            justify-content: center;
+            padding: 60px;
+
+            &:after {
+                content: "No tasks found :)";
+            }
+        }
+
         .task {
             padding: 20px;
             background-color: #FFF;
@@ -116,6 +135,17 @@ body {
                     background: url(user-icon.png) center center / contain no-repeat;
                 }
             }
+        }
+    }
+
+    .taskManager__footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background: linear-gradient(90deg, #2A7B9B 0%, #57C785 90%);
+
+        .footer__text {
+            color: #FFF;
         }
     }
 }
@@ -180,6 +210,10 @@ body {
                     transform: rotate(180deg);
                 }
             }
+        }
+
+        .modalContent__description {
+            font-size: 18px;
         }
 
         .modalContent__assignee {
