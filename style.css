@@ -55,7 +55,8 @@ body {
 
         .header__menu {
             .menu__newTaskButton {
-
+                margin-right: 0;
+                margin-left: 10px;
             }
         }
     }
