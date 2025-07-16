@@ -141,6 +141,7 @@ body {
     .taskManager__footer {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 20px;
         background: linear-gradient(90deg, #2A7B9B 0%, #57C785 90%);
 
