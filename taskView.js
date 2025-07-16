@@ -176,7 +176,7 @@ function displayAllTasks() {
         });
     }
 
-    // add is-empty class to columns with no tasks, in order to show a message on mobile
+    // add is-empty class to the columns with no tasks, in order to show a message to the user
     if (pendingColumnTasksElement.children.length === 0) {
         pendingColumnTasksElement.classList.add(emptyClass);
     } else {
