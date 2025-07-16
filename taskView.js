@@ -1,4 +1,4 @@
-import { createOrUpdateTask, createTask, deleteTask, retrieveAllTasks, retrieveTask } from './taskController.js';
+import { createOrUpdateTask, deleteTask, retrieveAllTasks } from './taskController.js';
 
 /*
 ==============================================================================
@@ -122,9 +122,9 @@ document.addEventListener("DOMContentLoaded",function () {
 function displayAllTasks() {
     const allTasks = retrieveAllTasks();
 
-    document.querySelector(".pendingColumn__tasks").innerHTML = '';
-    document.querySelector(".inProgressColumn__tasks").innerHTML = '';
-    document.querySelector(".finishedColumn__tasks").innerHTML = '';
+    document.querySelector(".pendingColumn__tasks").innerHTML = "";
+    document.querySelector(".inProgressColumn__tasks").innerHTML = "";
+    document.querySelector(".finishedColumn__tasks").innerHTML = "";
 
     if (allTasks.length) {
         allTasks.forEach(task => {
