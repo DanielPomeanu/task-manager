@@ -1,4 +1,4 @@
-const TASKS_KEY = 'tasks';
+const TASKS_KEY = "tasks";
 
 /**
  * Load all tasks from localStorage.

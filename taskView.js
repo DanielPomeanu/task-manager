@@ -1,4 +1,5 @@
-import { createOrUpdateTask, deleteTask, retrieveAllTasks } from './taskController.js';
+import { createOrUpdateTask, deleteTask, retrieveAllTasks } from "./taskController.js";
+import { runTaskManagerTests } from "./tests.js";
 
 /*
 ==============================================================================
@@ -8,11 +9,11 @@ import { createOrUpdateTask, deleteTask, retrieveAllTasks } from './taskControll
 
 // ==== MODALS ====
 const existingTaskModal = document.getElementById("existingTaskModal");
-const addOrUpdateTaskModal = document.getElementById('addOrUpdateTaskModal');
+const addOrUpdateTaskModal = document.getElementById("addOrUpdateTaskModal");
 
 // ==== BUTTONS ====
-const closeModalButton = document.querySelectorAll('.modal__close');
-const openAddOrUpdateTaskModalButton = document.getElementById('addNewTaskButton');
+const closeModalButton = document.querySelectorAll(".modal__close");
+const openAddOrUpdateTaskModalButton = document.getElementById("addNewTaskButton");
 const taskEditButton = existingTaskModal.querySelector(".modalFooter__edit");
 const taskDeleteButton = existingTaskModal.querySelector(".modalFooter__delete");
 
@@ -20,7 +21,7 @@ const taskDeleteButton = existingTaskModal.querySelector(".modalFooter__delete")
 let currentTask = null;
 
 // ==== FORMS ====
-const form = document.getElementById('newTaskForm');
+const form = document.getElementById("newTaskForm");
 
 /*
 ==============================================================================
@@ -31,42 +32,42 @@ const form = document.getElementById('newTaskForm');
 /**
  * Display modal to add a new task when the add new task button is pressed
  */
-openAddOrUpdateTaskModalButton.addEventListener('click', () => {
-    addOrUpdateTaskModal.style.display = 'block';
+openAddOrUpdateTaskModalButton.addEventListener("click", () => {
+    addOrUpdateTaskModal.style.display = "block";
 });
 
 /**
  * Hide modal when the close modal button is pressed
  */
 closeModalButton.forEach(el => {
-    el.addEventListener('click', () => {
-        const modal = el.closest('.modal');
-        modal.style.display = 'none';
+    el.addEventListener("click", () => {
+        const modal = el.closest(".modal");
+        modal.style.display = "none";
     });
 });
 
 /**
  * Handle submit of the data when a task is added or updated
  */
-form.addEventListener('submit', (event) => {
+form.addEventListener("submit", (event) => {
     // prevent sending form data to the URL and triggering of a page reload
     event.preventDefault();
 
     const formData = new FormData(form);
-    const title = formData.get('title');
-    const id = formData.get('id');
-    const description = formData.get('description');
-    const assignee = formData.get('assignee');
-    const status = formData.get('status');
+    const title = formData.get("title");
+    const id = formData.get("id");
+    const description = formData.get("description");
+    const assignee = formData.get("assignee");
+    const status = formData.get("status");
 
     // call the controller to perform an add or an update
     createOrUpdateTask(id, title, description, assignee, status);
 
     // hide the modal after submit
-    addOrUpdateTaskModal.style.display = 'none';
+    addOrUpdateTaskModal.style.display = "none";
 
     // clear the id in the hidden input value
-    form.elements['id'].value = "";
+    form.elements["id"].value = "";
 
     // clear the form to delete potential existing values in the form fields
     form.reset();
@@ -81,14 +82,14 @@ form.addEventListener('submit', (event) => {
 taskEditButton.addEventListener("click", function (event) {
     if (!currentTask) return;
 
-    form.elements['id'].value = currentTask.id;
-    form.elements['title'].value = currentTask.title;
-    form.elements['description'].value = currentTask.description;
-    form.elements['assignee'].value = currentTask.assignee;
-    form.elements['status'].value = currentTask.status;
+    form.elements["id"].value = currentTask.id;
+    form.elements["title"].value = currentTask.title;
+    form.elements["description"].value = currentTask.description;
+    form.elements["assignee"].value = currentTask.assignee;
+    form.elements["status"].value = currentTask.status;
 
-    existingTaskModal.style.display = 'none';
-    addOrUpdateTaskModal.style.display = 'block';
+    existingTaskModal.style.display = "none";
+    addOrUpdateTaskModal.style.display = "block";
 });
 
 /**
@@ -98,7 +99,7 @@ taskDeleteButton.addEventListener("click", function (event) {
     if (!currentTask) return;
 
     deleteTask(currentTask.id);
-    existingTaskModal.style.display = 'none';
+    existingTaskModal.style.display = "none";
     displayAllTasks();
 });
 
@@ -106,6 +107,7 @@ taskDeleteButton.addEventListener("click", function (event) {
  * Display all tasks on page load
  */
 document.addEventListener("DOMContentLoaded",function () {
+    runTaskManagerTests();
     displayAllTasks();
 })
 
@@ -150,7 +152,7 @@ function displayAllTasks() {
                 existingTaskModal.querySelector(".modalContent__description").innerHTML = task.description || "";
                 existingTaskModal.querySelector(".modalContent__assignee").innerHTML = "Assignee: " + (task.assignee || "");
 
-                existingTaskModal.style.display = 'block';
+                existingTaskModal.style.display = "block";
             });
 
             switch (task.status) {

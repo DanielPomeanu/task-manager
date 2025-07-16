@@ -1,4 +1,4 @@
-import {loadTasks, saveTasks, clearAllTasks} from "./taskModel.js"
+import { loadTasks, saveTasks } from "./taskModel.js"
 
 /**
  * Creates a new task or update an existing one.
