@@ -15,7 +15,7 @@
         <h1 class="logo__text">Task Manager</h1>
       </div>
       <div class="header__menu">
-        <button id="openModalButton" class="menu__newTaskButton primaryButton">New Task</button>
+        <button id="addNewTaskButton" class="menu__newTaskButton primaryButton">New Task</button>
       </div>
     </div>
 
@@ -35,14 +35,15 @@
       </div>
     </div>
 
-    <!-- New Task Modal -->
-    <div id="newTaskModal" class="modal">
+    <!-- Add Or Update Task Modal -->
+    <div id="addOrUpdateTaskModal" class="modal">
       <div class="modal__inner">
         <div class="modal__header">
           <h2>New Task</h2>
           <button class="modal__close"></button>
         </div>
         <form id="newTaskForm">
+          <input type="hidden" name="id"/>
           <label>
             Title:
             <input type="text" name="title" required>
@@ -78,6 +79,10 @@
         <div class="modal__content">
           <p class="modalContent__description"></p>
           <p class="modalContent__assignee"></p>
+        </div>
+        <div class="model__footer">
+          <button class="modalFooter__edit primaryButton">Edit</button>
+          <button class="modalFooter__delete secondaryButton">Delete</button>
         </div>
       </div>
     </div>

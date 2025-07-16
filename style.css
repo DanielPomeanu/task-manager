@@ -27,6 +27,20 @@ body {
         }
     }
 
+    .secondaryButton {
+        padding: 20px 30px;
+        margin: 15px 10px 0 0;
+        min-width: 130px;
+        background-color: #000;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #414746;
+        }
+    }
+
     .taskManager__header {
         display: flex;
         justify-content: space-between;
@@ -49,7 +63,12 @@ body {
     .taskManager__content {
         display: flex;
         justify-content: space-between;
+        flex-direction: column;
         height: 100vh;
+
+        @media (min-width: 768px) {
+            flex-direction: row;
+        }
 
         .content__pendingColumn,
         .content__inProgressColumn,
@@ -60,7 +79,9 @@ body {
 
         .content__pendingColumn,
         .content__inProgressColumn {
-            border-right: 5px solid #103F4A;
+            @media (min-width: 768px) {
+                border-right: 5px solid #103F4A;
+            }
         }
 
         .pendingColumn__header,
@@ -84,6 +105,7 @@ body {
             .task__assignee {
                 display: flex;
                 align-items: center;
+                margin-left: -7px; /* fix alignment due to poorly cropped icon */
 
                 &:before {
                     content: "";

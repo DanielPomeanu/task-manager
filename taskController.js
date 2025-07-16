@@ -1,6 +1,28 @@
 import {loadTasks, loadTask, saveTasks, clearAllTasks} from "./taskModel.js"
 
 /**
+ * Creates a new task or update an existing one.
+ * @param {string} id - The id of the new task
+ * @param {string} title - The title of the new task
+ * @param {string} description - The description of the new task
+ * @param {string} assignee - The assignee of the new task
+ * @param {string} status - The status of the new task
+ * @returns {Object} The newly created task, the updated task or null.
+ */
+export function createOrUpdateTask(id, title, description, assignee, status) {
+    if (id === "") {
+        return createTask(title, description, assignee, status);
+    } else {
+        return updateTask(id, {
+            title: title,
+            description: description,
+            assignee: assignee,
+            status: status
+        });
+    }
+}
+
+/**
  * Create a new task and store it.
  * @param {string} title - The title of the new task
  * @param {string} description - The description of the new task
