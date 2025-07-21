@@ -93,7 +93,7 @@ A mobile-first approach has been used during the development.
 
 ## 🧰 How to Run
 
-Just open the app in your browser, at https://taskmanager.danielul.ro 🥳
+Just open the app in your browser, at https://taskid.danielul.ro 🥳
 
 ---
 
