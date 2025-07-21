@@ -1,4 +1,4 @@
-# 🗂️ Task Manager SPA
+# 🗂️ TasKid - A playful task manager for the ones in your family who forgot to brush their teeth. Agaaaain :)
 
 A responsive single-page application (SPA) for managing tasks, built using **HTML5**, **CSS3**, and **vanilla JavaScript (ES6)** — no frameworks, no build tools.
 
@@ -99,6 +99,6 @@ Just open the app in your browser, at https://taskmanager.danielul.ro 🥳
 
 ## 👨‍💻 Author
 
-Built with ❤️ by Daniel Pomeanu for the Adobe technical interview.
+Built with ❤️ by Daniel Pomeanu.
 
-July 2025
+© 2025

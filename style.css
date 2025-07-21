@@ -149,6 +149,10 @@ body {
             color: #FFF;
             margin-right: 10px;
         }
+
+        .footer__date {
+            min-width: 50px;
+        }
     }
 }
 
